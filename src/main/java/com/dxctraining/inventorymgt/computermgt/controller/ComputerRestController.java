@@ -12,7 +12,8 @@ package com.dxctraining.inventorymgt.computermgt.controller;
 	import org.springframework.web.bind.annotation.RestController;
 
 	import com.dxctraining.inventorymgt.computermgt.dto.CreateComputerRequest;
-	import com.dxctraining.inventorymgt.computermgt.entities.Computer;
+import com.dxctraining.inventorymgt.computermgt.dto.UpdateComputerRequest;
+import com.dxctraining.inventorymgt.computermgt.entities.Computer;
 	import com.dxctraining.inventorymgt.computermgt.service.IComputerService;
 
 
@@ -38,13 +39,14 @@ package com.dxctraining.inventorymgt.computermgt.controller;
 			Computer computerservice1 = computerservice.findComputerById(id);
 			return computerservice1;
 		}
-                @PutMapping("/update")
-	@ResponseStatus(HttpStatus.ACCEPTED)
-	public Computer updateComputer(@RequestBody UpdateComputerRequest computer) {
-		Computer computer1 = new Computer(computer.getName(),computer.getPassword());
-		computer1.setId(computer.getId());
-		return service.update(phone1);
-	
-	}
+		@PutMapping("/update")
+		@ResponseStatus(HttpStatus.ACCEPTED)
+		public Computer updateComputer(@RequestBody UpdateComputerRequest computer) {
+			Computer computer1 = new Computer(computer.getName(),computer.getDiskSize());
+			computer1.setId(computer.getId());
+			return computerservice.update(computer1);
+		
+		}
+		     
 		
 }

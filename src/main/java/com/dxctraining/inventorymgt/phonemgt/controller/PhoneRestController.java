@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dxctraining.inventorymgt.phonemgt.dto.CreatePhoneRequest;
+import com.dxctraining.inventorymgt.phonemgt.dto.UpdatePhoneRequest;
 import com.dxctraining.inventorymgt.phonemgt.entities.Phone;
 import com.dxctraining.inventorymgt.phonemgt.service.IPhoneService;
 
@@ -39,12 +40,12 @@ public class PhoneRestController {
 		Phone computerservice1 = Phoneservice.findPhoneById(id);
 		return computerservice1;
 	}
-        @PutMapping("/update")
+	@PutMapping("/update")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public Phone updatePhone(@RequestBody UpdatePhoneRequest phone) {
-		Phone phone1 = new Phone(phone.getName(),phone.getPassword());
+		Phone phone1 = new Phone(phone.getName(),phone.getStorageSize());
 		phone1.setId(phone.getId());
-		return service.update(phone1);
+		return Phoneservice.update(phone1);
 	
 	}
 

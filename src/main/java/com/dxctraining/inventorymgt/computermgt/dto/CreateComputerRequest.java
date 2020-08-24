@@ -1,7 +1,8 @@
 package com.dxctraining.inventorymgt.computermgt.dto;
 
-public class UpdateComputerRequest {
+public class CreateComputerRequest {
 	private String name;
+       
 	private int diskSize;
 	
 	public String getName() {

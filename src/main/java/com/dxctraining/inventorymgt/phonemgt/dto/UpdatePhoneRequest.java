@@ -4,6 +4,16 @@ public class UpdatePhoneRequest {
 	
 	private String name;
 	private int storageSize;
+    private int id;
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getName() {
 		return name;
